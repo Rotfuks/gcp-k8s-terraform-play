@@ -1,0 +1,12 @@
+# IDE
+.idea
+
+# Node
+node_modules
+
+# Terraform
+infra/*-key.json
+*.tfstate*
+
+# Temporary local stuff
+tmp/*
