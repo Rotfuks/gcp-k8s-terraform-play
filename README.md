@@ -23,6 +23,11 @@ In order to have something to deploy, you can build and push the docker image in
 It's just a basic application posting a message on *localhost:3000* (and later in your k8s engine).
 Check out [this explanation](https://cloud.google.com/container-registry/docs/pushing-and-pulling) on how to build and push docker images into the gcr.
 
+##### Make your GCR Repo public
+To make it easier to pull the image you have to make the repository you pushed the app to public.
+Else terraform will not be able to pull the image from your repository. 
+You can do this in the Configuration of the GCR on *console.cloud.google.com*
+
 ##### Fill out the variables
 Last but not least you have to fill out the variables in *infra/main.tf*. 
 Keep the Defaults but Type in everything that is surrounded with `<>`.
@@ -47,9 +52,9 @@ When everything is run successful you can verify your cluster, the services and 
 ### Check your app
 You can find out your freshly created ip-address with your orchestrated app-container via
 ```
-gcloud container clusters get-credentials jobrunr-tutorial-kubernetes --region europe-west1
-kubectl get services
-kubectl get pods
+$ gcloud auth activate-service-account  --key-file gcp-service-key.json
+$ gcloud container clusters get-credentials rotfuks-cluster --region us-central1 --project <PROJECT_ID>
+$ kubectl get services
 ```
 Then access the app with 
 ```

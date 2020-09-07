@@ -28,8 +28,8 @@ resource "kubernetes_deployment" "rotfuks-test-deployment" {
       spec {
 
         container {
-          image = "gcr.io/${var.project}/${var.image}:latest"
-          name = var.image
+          image = "us.gcr.io/${var.project}/${var.image}:latest"
+          name = "test-deployment"
 
           port {
             container_port = 3000

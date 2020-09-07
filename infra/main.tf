@@ -5,7 +5,7 @@ variable "project" {
   default = "rotfuks-43de4"
 }
 variable "image" {
-  default = "test"
+  default = "test-repo/test"
 }
 variable "region" {
   default = "us-central1"
